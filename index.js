@@ -3,28 +3,34 @@
 // ***************************************************************************
 let usersArray = require('./data.js');
 
-function getFirstNames(arr){
-  const userFirstNames = [];
-  for (let user of arr) {
-    userFirstNames.push(user.firstName)
+// function getFirstNames(arr){
+//   const userFirstNames = [];
+//   for (let user of arr) {
+//     userFirstNames.push(user.firstName)
     
-  }
-  console.log(userFirstNames)
-  return userFirstNames
+//   }
+//   console.log(userFirstNames)
+//   return userFirstNames
   
-};
+// };
 
 
-getFirstNames(usersArray);
-// // expected output:
-// // [ 'Kirby', 'Tracie', 'Kendra', 'Kinney', 'Howard', 'Rachelle', 'Lizzie' ]
+// getFirstNames(usersArray);
+// // // expected output:
+// // // [ 'Kirby', 'Tracie', 'Kendra', 'Kinney', 'Howard', 'Rachelle', 'Lizzie' ]
 
-// // ***************************************************************************
-// // Iteration 2 - `for...of` loop and ES6 string literals `${}`
-// // ***************************************************************************
+// // // ***************************************************************************
+// // // Iteration 2 - `for...of` loop and ES6 string literals `${}`
+// // // ***************************************************************************
 
 // const getFullNames = arr => {
-//   // Your code goes here ...
+//   let userFullNames = [];
+//   for(let user of arr){
+//     userFullNames.push(`${user.firstName} ${user.lastName} `);
+//   }
+//   console.log(userFullNames)
+//   return userFullNames;
+
 // };
 
 // getFullNames(usersArray);
@@ -36,11 +42,22 @@ getFirstNames(usersArray);
 // // Iteration 3 - ES6 destructuring , for of loop, object literal
 // // ***************************************************************************
 
-// const getUsersCreditDetails = arr => {
-//   // Your code goes here ...
-// };
+const getUsersCreditDetails = arr => {
+  let usersCreditDetails = []
+  for(let user of arr){
+   let {firstName={firstName},lastName={lastName},balance={balance}} = user
+   let score = {
+    firstName,
+    lastName,
+    balance
+    }
+  usersCreditDetails.push(score)
+  }
+  
+  console.log(usersCreditDetails)
+};
 
-// getUsersCreditDetails(usersArray);
+getUsersCreditDetails(usersArray);
 // // expected output:
 // // [ { firstName: 'Kirby', lastName: 'Doyle', balance: '$3,570.06' },
 // // { firstName: 'Tracie', lastName: 'May', balance: '$1,547.73' },
