@@ -33,31 +33,31 @@ let usersArray = require('./data.js');
 
 // };
 
-// getFullNames(usersArray);
-// // expected output:
-// // [ 'Kirby Doyle', 'Tracie May', 'Kendra Hines', 'Kinney Howard',
-// //   'Howard Gilmore', 'Rachelle Schneider', 'Lizzie Alford' ]
+// // getFullNames(usersArray);
+// // // expected output:
+// // // [ 'Kirby Doyle', 'Tracie May', 'Kendra Hines', 'Kinney Howard',
+// // //   'Howard Gilmore', 'Rachelle Schneider', 'Lizzie Alford' ]
 
-// // ***************************************************************************
-// // Iteration 3 - ES6 destructuring , for of loop, object literal
-// // ***************************************************************************
+// // // ***************************************************************************
+// // // Iteration 3 - ES6 destructuring , for of loop, object literal
+// // // ***************************************************************************
 
-const getUsersCreditDetails = arr => {
-  let usersCreditDetails = []
-  for(let user of arr){
-   let {firstName={firstName},lastName={lastName},balance={balance}} = user
-   let score = {
-    firstName,
-    lastName,
-    balance
-    }
-  usersCreditDetails.push(score)
-  }
+// const getUsersCreditDetails = arr => {
+//   let usersCreditDetails = []
+//   for(let user of arr){
+//    let {firstName={firstName},lastName={lastName},balance={balance}} = user
+//    let score = {
+//     firstName,
+//     lastName,
+//     balance
+//     }
+//   usersCreditDetails.push(score)
+//   }
   
-  console.log(usersCreditDetails)
-};
+//   console.log(usersCreditDetails)
+// };
 
-getUsersCreditDetails(usersArray);
+// getUsersCreditDetails(usersArray);
 // // expected output:
 // // [ { firstName: 'Kirby', lastName: 'Doyle', balance: '$3,570.06' },
 // // { firstName: 'Tracie', lastName: 'May', balance: '$1,547.73' },
@@ -71,11 +71,18 @@ getUsersCreditDetails(usersArray);
 // // Iteration 4 - practice `.filter()` method and how to return two elements
 // // ***************************************************************************
 
-// const genderView = users => {
-//   // Your code goes here ...
-// };
+const genderView = users => {
+  let femaleUsers = [];
+  let maleUsers = [];
+  femaleUsers = users.filter(e => e.gender == 'female')
+  maleUsers = users.filter(e => e.gender == 'male')
+  let females = femaleUsers.map(e => `${e.firstName} ${e.lastName}`) ;
+  let males = maleUsers.map(e => `${e.firstName} ${e.lastName}`) ;
+  let gender ={females, males}
+  console.log(gender)
+  }
 
-// genderView(usersArray);
+genderView(usersArray);
 // // expected output:
 // // {
 // //    femaleUsers: [ 'Tracie May', 'Kendra Hines', 'Rachelle Schneider', 'Lizzie Alford' ],
