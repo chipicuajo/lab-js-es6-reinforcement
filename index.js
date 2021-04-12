@@ -76,9 +76,9 @@ const genderView = users => {
   let maleUsers = [];
   femaleUsers = users.filter(e => e.gender == 'female')
   maleUsers = users.filter(e => e.gender == 'male')
-  let females = femaleUsers.map(e => `${e.firstName} ${e.lastName}`) ;
-  let males = maleUsers.map(e => `${e.firstName} ${e.lastName}`) ;
-  let gender ={females, males}
+  femaleUsers = femaleUsers.map(e => `${e.firstName} ${e.lastName}`) ;
+  maleUsers = maleUsers.map(e => `${e.firstName} ${e.lastName}`) ;
+let gender ={femaleUsers, maleUsers}
   console.log(gender)
   }
 
