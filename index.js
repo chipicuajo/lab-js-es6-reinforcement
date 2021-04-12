@@ -42,22 +42,22 @@ let usersArray = require('./data.js');
 // // // Iteration 3 - ES6 destructuring , for of loop, object literal
 // // // ***************************************************************************
 
-// const getUsersCreditDetails = arr => {
-//   let usersCreditDetails = []
-//   for(let user of arr){
-//    let {firstName={firstName},lastName={lastName},balance={balance}} = user
-//    let score = {
-//     firstName,
-//     lastName,
-//     balance
-//     }
-//   usersCreditDetails.push(score)
-//   }
+const getUsersCreditDetails = arr => {
+  let usersCreditDetails = []
+  for(let user of arr){
+   let {firstName={firstName},lastName={lastName},balance={balance}} = user
+   let score = {
+    firstName,
+    lastName,
+    balance
+    }
+  usersCreditDetails.push(score)
+  }
   
-//   console.log(usersCreditDetails)
-// };
+  console.log(usersCreditDetails)
+};
 
-// getUsersCreditDetails(usersArray);
+getUsersCreditDetails(usersArray);
 // // expected output:
 // // [ { firstName: 'Kirby', lastName: 'Doyle', balance: '$3,570.06' },
 // // { firstName: 'Tracie', lastName: 'May', balance: '$1,547.73' },
@@ -78,8 +78,8 @@ const genderView = users => {
   maleUsers = users.filter(e => e.gender == 'male')
   femaleUsers = femaleUsers.map(e => `${e.firstName} ${e.lastName}`) ;
   maleUsers = maleUsers.map(e => `${e.firstName} ${e.lastName}`) ;
-let gender ={femaleUsers, maleUsers}
-  console.log(gender)
+  let gender = {femaleUsers, maleUsers}
+  return gender;
   }
 
 genderView(usersArray);
@@ -93,13 +93,18 @@ genderView(usersArray);
 // // Bonus - Iteration 5
 // // ***************************************************************************
 
-// const data = genderView(usersArray);
+const data = genderView(usersArray);
 
-// const genderCount = data => {
-//   // Your code goes here ...
-// };
+const genderCount = data => {
+  let {femaleUsers, maleUsers} = data;
+  let female  = femaleUsers.length;
+  let male = maleUsers.length;
+  console.log(`Female: ${female} - Male: ${male}`)
+  return `Female: ${female} - Male: ${male}`
+  
+};
 
-// genderCount(data);
+genderCount(data);
 // // expected output:
 // // Female: 4
 // // Male: 3
