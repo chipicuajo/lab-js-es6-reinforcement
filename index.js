@@ -123,10 +123,6 @@ const promo20 = users => {
       return `Dear ${user.firstName} since your balance is $${user.balance}, you are eligible to apply for this awesome credit card.`;
     })
   return messages;
-  
-  
-  // console.log(message)
-  // return message;
 };
 promo20(usersArray);
 
